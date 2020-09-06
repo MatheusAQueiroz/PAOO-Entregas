@@ -1,14 +1,16 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Exercicio</title>
-</head>
-<body>
-  <!-- Componente header -->
-  <app-header></app-header>
-  <!-- Componente tabela-cursos -->
-  <app-tabela-cursos></app-tabela-cursos>
-</body>
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercicio</title>
+  </head>
+  <body>
+    <!-- Componente header -->
+    <app-header (altExibicaoTabela)="onAltTabelaCursos($event)" (altExibicaoInsercao)="onAltExibicaoInsercao($event)"></app-header>
+    <!-- Componente tabela-cursos -->
+    <app-tabela-cursos [exibirTabela]="exibirTabela" [exibirInsercao]="exibirInsercao" (emitirCurso)="onEmitirCurso($event)"></app-tabela-cursos>
+    <!-- Componente form-aluno -->
+    <app-form-aluno [cursos]="cursos"></app-form-aluno>
+  </body>
 </html>

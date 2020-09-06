@@ -1,7 +1,18 @@
 <!-- Barra de navegação -->
 <nav class="navbar navbar-extend-lg navbar-light bg-light border-bottom">
   <span class="navbar-brand">
-    <img src="../../assets/logo.png" width="125" height="60" class="d-inline-block align-top" alt="">
-    <span class="navbar-text border-left pl-3 ml-3 mt-2">Fatec Ipiranga - Pastor Enéas Tognini</span>
+    <img src="../../assets/logo.png" width="125" height="60" class="d-inline-block align-top">
+    <span class="navbar-text border-left pl-3 ml-3 mt-2"><b>Fatec <span [ngStyle]="{'color':'#A90D0F'}">Ipiranga</span></b> - Pastor Enéas Tognini</span>
   </span>
 </nav>
+<!-- Botões de exibiçao -->
+<div class="col-md-12">
+  <div class="row p-1">
+    <div class="col-md-6 p-1">
+      <button [ngClass]="obterEstilosBotao()" (click)="alterarExibicaoTabela()">{{obterTextoTabela()}} tabela de cursos</button>
+    </div>
+    <div class="col-md-6 p-1">
+      <button [ngClass]="obterEstilosBotao()" (click)="alterarExibicaoInsercao()">{{obterTextoInsercao()}} inserção de curso</button>
+    </div>
+  </div>
+</div>

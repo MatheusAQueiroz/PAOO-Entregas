@@ -1,11 +1,12 @@
-import { Component, Input } from '@angular/core';
+import { Component, OnInit, Output, EventEmitter, Input } from '@angular/core';
 
 @Component({
   selector: 'app-tabela-cursos',
   templateUrl: './tabela-cursos.component.html',
   styleUrls: ['./tabela-cursos.component.css']
 })
-export class TabelaCursosComponent  {
+export class TabelaCursosComponent implements OnInit {
+  //Cursos exibidos na tabela de cursos
   cursos = [
     'Análise e Desenvolvimento de Sistemas',
     'Eventos',
@@ -14,24 +15,20 @@ export class TabelaCursosComponent  {
     'Recursos Humanos',
   ]
 
+  //Envio dos cursos para o formulário de aluno
+  @Output() emitirCurso = new EventEmitter();
+  ngOnInit() {
+    this.emitirCurso.emit(this.cursos);
+  }
+
+  //Adição do curso na tabela e no formulário de aluno
   onAdicionarCurso(curso) {
-    console.log('Passou por onAdicionarCurso()');
     this.cursos = [curso, ...this.cursos];
+    this.emitirCurso.emit(this.cursos);
+    console.log(this.cursos);
   }
 
-  exibirTabela = false;
-  exibirInsercao = false;
-
-  alterarExibicaoTabela() {
-    this.exibirTabela = !this.exibirTabela;
-  }
-  alterarExibicaoInsercao() {
-    this.exibirInsercao = !this.exibirInsercao;
-  }
-  obterTextoTabela() {
-    return this.exibirTabela ? 'Ocultar' : 'Exibir';
-  }
-  obterTextoInsercao() {
-    return this.exibirInsercao ? 'Ocultar' : 'Exibir';
-  }
+  //Booleanos de exibição
+  @Input() exibirTabela = false;
+  @Input() exibirInsercao = false;
 }
