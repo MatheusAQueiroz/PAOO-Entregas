@@ -1,26 +1,26 @@
-<div class="row m-4">
-  <table class="table table-hover">
-    <thead class="thead-dark">
-      <tr>
-        <th>Cursos</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td>Análise e Desenvolvimento de Sistemas</td>
-      </tr>
-      <tr>
-        <td>Eventos</td>
-      </tr>
-      <tr>
-        <td>Gestão Comercial</td>
-      </tr>
-      <tr>
-        <td>Gestão Empresarial</td>
-      </tr>
-      <tr>
-        <td>Recursos Humanos</td>
-      </tr>
-    </tbody>
-  </table>
+<div class="col-md-12">
+  <div class="row p-1">
+    <div class="col-md-6 p-1">
+      <button class="btn btn-dark btn-block" (click)="alterarExibicaoTabela()">{{obterTextoTabela()}} tabela de cursos</button>
+    </div>
+    <div class="col-md-6 p-1">
+      <button class="btn btn-dark btn-block" (click)="alterarExibicaoInsercao()">{{obterTextoInsercao()}} inserção de curso</button>
+    </div>
+  </div>
+  <!-- Componente do formulario de insercao -->
+  <app-form-curso (adicionarCurso)="onAdicionarCurso($event)" [hidden]="!exibirInsercao"></app-form-curso>
+  <div [hidden]="!exibirTabela" class="row">
+    <table class="table table-hover">
+      <thead class="thead-dark">
+        <tr>
+          <th>Cursos</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let c of cursos">
+          <td>{{c}}</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
 </div>
