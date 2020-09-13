@@ -7,6 +7,8 @@ import { HeaderComponent } from './header/header.component';
 import { TabelaCursosComponent } from './tabela-cursos/tabela-cursos.component';
 import { FormCursoComponent } from './form-curso/form-curso.component';
 import { FormAlunoComponent } from './form-aluno/form-aluno.component';
+import { BtnBorderDirective } from './btn-border.directive';
+import { CardHoverDirective } from './card-hover.directive';
 
 @NgModule({
   declarations: [
@@ -14,7 +16,9 @@ import { FormAlunoComponent } from './form-aluno/form-aluno.component';
     HeaderComponent,
     TabelaCursosComponent,
     FormCursoComponent,
-    FormAlunoComponent
+    FormAlunoComponent,
+    BtnBorderDirective,
+    CardHoverDirective
   ],
   imports: [
     BrowserModule,
